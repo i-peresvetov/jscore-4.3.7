@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*********************************************/
+/*********************************************/
+/*********************************************/
+
+body {
+  background-color: #c4c4c4;
+}
+
+.search {
+  margin: 60px auto;
+  max-width: 600px;  
+}
+
+.search__input {
+  width: 500px;
+  height: 61px;
+  border: transparent;
+  color: #000;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 15px;
+}
+
+input:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+.search__pins {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.search__pinnedrepo {
+  border: 1px solid #000;
+  background: #e27beb;
+  width: 503px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search__deleterepo {
+  width: 50px;
+  height: 50px;
+  background: url(delete.png) no-repeat;
+  background-size: contain;
+  margin-right: 20px;
+}

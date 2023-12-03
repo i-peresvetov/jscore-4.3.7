@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>github-parse</title>
-</head>
-<body>
-    
-</body>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>jscore-4.3.7</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="search">
+      <input type="text" placeholder="Поиск..." class="search__input" /><button>Добавить</button>
+
+      <ul class="search__autocomplite">
+        <li>Result 01</li>
+        <li>Result 02</li>
+        <li>Result 03</li>
+        <li>Result 04</li>
+        <li>Result 05</li>
+      </ul>
+
+      <ul class="search__pins">
+        <li class="search__pinnedrepo pinnedrepo">
+          <div>
+            <span class="pinnedrepo__name">Name: react</span><br />
+            <span class="pinnedrepo__owner">Owner: facebook</span><br />
+            <span class="pinnedrepo__stars">Stars: 145231</span>
+          </div>
+          <button class="search__deleterepo"></button>
+        </li>
+      </ul>
+
+      <template class="search__template">
+        <li class="search__pinnedrepo pinnedrepo">
+            <div>
+              <span class="pinnedrepo__name"></span><br />
+              <span class="pinnedrepo__owner"></span><br />
+              <span class="pinnedrepo__stars"></span>            
+            </div>
+            <button class="search__deleterepo"></button>
+          </li>
+      </template>
+
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
