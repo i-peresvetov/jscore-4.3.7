@@ -32,6 +32,14 @@ ul {
   list-style: none;
 }
 
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
 /*********************************************/
 /*********************************************/
 /*********************************************/
@@ -42,7 +50,7 @@ body {
 
 .search {
   margin: 60px auto;
-  max-width: 600px;  
+  max-width: 600px;
 }
 
 .search__input {
@@ -57,6 +65,20 @@ body {
   padding-left: 15px;
 }
 
+.search__result {
+  width: 500px;
+  height: 44px;
+  border: 2px solid #000;
+  background: #e3e3e3;
+  color: #000;
+  font-size: 30px;
+  padding-left: 15px;
+}
+
+.search__result:hover {
+  background: #65cdf9;
+}
+
 input:active,
 :hover,
 :focus {
@@ -65,6 +87,7 @@ input:active,
 }
 
 .search__pins {
+  margin-top: 40px;
   color: #000;
   font-size: 24px;
   font-style: normal;
@@ -81,7 +104,7 @@ input:active,
   align-items: center;
 }
 
-.search__deleterepo {
+.pinnedrepo__deleterepo {
   width: 50px;
   height: 50px;
   background: url(delete.png) no-repeat;

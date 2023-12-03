@@ -1,3 +1,8 @@
+// нужно сокращение имени, если имя слишком большое
+// автокомплит сначала скрыт
+// если набрано что-то, то он появляется
+
+
 let fiveRepos
 
 const debounce = (fn, debounceTime) => {
@@ -15,11 +20,19 @@ const debounce = (fn, debounceTime) => {
 async function searchRepo(searchStr) {
     let searchResult = await fetch(`https://api.github.com/search/repositories?q=${searchStr}`)
     if (searchResult.ok) {
+        let autoComlite = document.querySelector('.search__autocomplite')
         const resultProm = searchResult.json()
         console.log(resultProm)
         resultProm.then((result) => {
-            console.log(result.items.slice(0, 5))
-            fiveRepos = result.items.slice(0, 5)
+            result.items.slice(0, 5).forEach(function(repo) {
+                let newLi = document.createElement('li')
+                newLi.textContent = repo.name
+                newLi.classList.add('search__result')
+                autoComlite.appendChild(newLi)
+                console.log(repo.name)
+            })
+            // console.log(result.items.slice(0, 5))
+            // fiveRepos = result.items.slice(0, 5)
         })
     } else {
         console.log(`Ошибка HTTP: ${searchResult.status}`)
@@ -28,8 +41,9 @@ async function searchRepo(searchStr) {
 
 const searchRepoDebounce = debounce(searchRepo, 1000)
 const searchInput = document.querySelector('.search__input')
+
 searchInput.addEventListener('input', function(e) {
-    searchRepoDebounce(e.target.value)
+    searchRepoDebounce(e.target.value)    
 })
 
 const testButton = document.querySelector('button')
