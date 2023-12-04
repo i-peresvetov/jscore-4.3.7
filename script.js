@@ -1,15 +1,3 @@
-// нужно сокращение имени в списке и пине, если имя слишком большое
-// скрытие списка, если ничего не введено - отловить баг того что что-то появляется
-//// появляется если добавить символ и сразу удалить
-//// надо сделать что бы если в поиске пусто - поиск не происходил
-// запретить ввод пробела
-//// сообщение о пробеле
-// сообщение о проблеме с сетью при её отсутствии
-
-
-// удаление из пина по нажатию на крест
-
-
 const debounce = (fn, debounceTime) => {
     let bounces = 0
     return function(...args) {
@@ -25,7 +13,7 @@ const debounce = (fn, debounceTime) => {
 async function searchRepo(searchStr) {
     let searchResult = await fetch(`https://api.github.com/search/repositories?q=${searchStr}`)
     const searchInput = document.querySelector('input')
-    if (searchResult.ok) {
+    if (searchResult.ok && searchInput.value) {
         let autoComlite = document.querySelector('.search__autocomplite')
         const resultProm = searchResult.json()
         autoComlite.replaceChildren()
@@ -40,7 +28,9 @@ async function searchRepo(searchStr) {
                 autoComlite.appendChild(newLi)
             })
         })
-    } else {
+    }
+
+    if (!searchResult.ok) {
         console.log(`Ошибка HTTP: ${searchResult.status}`)
     }
 }
@@ -67,6 +57,11 @@ function addRepo(repName, repOwner, repStars) {
     stars.textContent = `Stars: ${repStars}`    
     let listOfRepost = document.querySelector('.search__pins')
     listOfRepost.append(pinnedRepo)
+
+    const searchInput = document.querySelector('input')
+    searchInput.value = ''
+    let autoComlite = document.querySelector('.search__autocomplite')    
+    autoComlite.replaceChildren()
 }
 
 const autoComliteZone = document.querySelector('.search__autocomplite')
@@ -77,7 +72,6 @@ autoComliteZone.addEventListener('click', function(e) {
 const searchPins = document.querySelector('.search__pins')
 searchPins.addEventListener('click', function (e) {
     if (e.target.classList.contains('pinnedrepo__deleterepo')) {
-        console.log(e.target)
-        console.log(e.target.closest('.pinnedrepo'))
+        e.target.closest('.pinnedrepo').remove()
     }
 })
