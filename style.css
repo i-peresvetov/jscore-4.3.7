@@ -50,7 +50,7 @@ body {
 
 .search {
   margin: 60px auto;
-  max-width: 600px;
+  width: 500px;
 }
 
 .search__input {
@@ -63,6 +63,10 @@ body {
   font-weight: 400;
   line-height: normal;
   padding-left: 15px;
+}
+
+.search__autocomplite {
+  position: absolute;
 }
 
 .search__result {
@@ -87,7 +91,7 @@ input:active,
 }
 
 .search__pins {
-  margin-top: 40px;
+  margin-top: 250px;
   color: #000;
   font-size: 24px;
   font-style: normal;
